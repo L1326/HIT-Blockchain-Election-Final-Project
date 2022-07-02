@@ -117,7 +117,7 @@ App = {
     content.hide();
     electionDisplay.hide();
 
-    // Load account data
+  // Load account data
     web3.eth.getCoinbase(function(err, account) {
       if (err === null) {
         App.account = account;
@@ -195,9 +195,6 @@ App = {
           var electionTemplate = "<tr><th>" + id + "</th><td>" + name + "</td><td>" + voteCount + "</td></tr>"
           electionResults.append(electionTemplate);
 
-          // Render candidate ballot option
-          var electionOption = "<option value='" + id + "' >" + name + "</ option>"
-          electionSelect.append(electionOption);
         });
       }
       return electionInstance.voters(App.account);
