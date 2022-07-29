@@ -27,7 +27,7 @@ npm install -g truffle
 - make directory named Election
 
 - Download the code from the following GitHub repo as a ZIP file:  
-[https://github.com/L1326/HIT-Blockchain-Election-Final-Project/tree/dev](https://github.com/L1326/HIT-Blockchain-Election-Final-Project/tree/dev)  
+[https://github.com/L1326/HIT-Blockchain-Election-Final-Project](https://github.com/L1326/HIT-Blockchain-Election-Final-Project)  
 
 If you already have the ZIP file of the code:  
 
