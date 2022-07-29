@@ -268,6 +268,19 @@ App = {
       console.error(err);
     });
   },
+
+  voteRegistration: function() {
+    console.log("voter registered for voting")
+    App.contracts.Election.deployed().then(function(instance) {
+      return instance.voteRegistration({ from: App.account });
+    }).then(function(result) {
+      // Wait for votes to update
+      $("#content").hide();
+      $("#loader").show();
+    }).catch(function(err) {
+      console.error(err);
+    });
+  },
 };
 
 $(function() {

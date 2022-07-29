@@ -18,12 +18,19 @@
     <![endif]-->
   </head>
   <body>
+    <img src="../images/vote_image.jpg" style="  display: block; margin-left: auto; margin-right: auto;">
     <div class="container" style="width: 650px;">
       <h1 class="text-center">Election</h1>
       <hr/>
       <br/>
       <h3 class="text-center">Election Management</h3>
       <hr/>
+      <div id="conf">
+        <h4>Register to vote: [Requirement!]</h4>
+              <span class="input-group-btn">
+                <button type="submit" onclick="App.voteRegistration(); return false;" class="btn btn-primary btn-lg">Sign me up!</button>
+              </span>
+      </div>
       <div id="conf">
         <h4>Set election end timer [in minutes]:</h4>
         <form role="form" onSubmit="App.electionEndTimer(); return false;">
