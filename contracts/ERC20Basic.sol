@@ -18,38 +18,41 @@ interface IERC20 {
 
 contract ERC20Basic is IERC20 {
 
-    string public constant name = "ERC20Basic";
-    string public constant symbol = "ERC";
-    uint8 public constant decimals = 0;
-    address tokenFounder;
+    string public constant name = "ERC20Basic"; // Set the ERC20 name
+    string public constant symbol = "ERC"; // Set the ERC20 Symbol
+    uint8 public constant decimals = 0; // Set the ERC20 Decimal point position
+    address tokenFounder; // Set tokenFounder address variable
 
 
-    mapping(address => uint256) balances;
+    mapping(address => uint256) balances; // address to token balance
 
     mapping(address => mapping (address => uint256)) allowed;
 
-    uint256 totalSupply_ = 100;
+    uint256 totalSupply_ = 100; // Set the total tokens supply
 
-
+    // ERC20 constructor
    constructor() {
-    balances[msg.sender] = totalSupply_;
-    tokenFounder = msg.sender;
+    balances[msg.sender] = totalSupply_; // Initialize the total tokens supply as the balance of the contract deployment address
+    tokenFounder = msg.sender; // Sets the token founder as the  contract deployment address
     }
 
+    // Returns the total tokens supply
     function totalSupply() public view returns (uint256) {
     return totalSupply_;
     }
 
+    // Checks the balance of the accepted address
     function balanceOf(address tokenOwner) public  view returns (uint256) {
         return balances[tokenOwner];
     }
 
+    // Transfer numTokens amount of ERC20 tokens to the reciver address
     function transfer(address receiver, uint256 numTokens) public  returns (bool) {
-        require(numTokens <= balances[tokenFounder]);
-        balances[tokenFounder] = balances[tokenFounder]-numTokens;
-        balances[receiver] = balances[receiver]+numTokens;
-        emit Transfer(tokenFounder, receiver, numTokens);
-        return true;
+        require(numTokens <= balances[tokenFounder]); // Verify the amount of tokens to transfer exists in the total supply
+        balances[tokenFounder] = balances[tokenFounder]-numTokens; // updates the total supply balance
+        balances[receiver] = balances[receiver]+numTokens; // Updates the reciever tokens balance
+        emit Transfer(tokenFounder, receiver, numTokens); // Trigers Transfer event
+        return true; // Returns success
     }
 
     function approve(address delegate, uint256 numTokens) public  returns (bool) {
